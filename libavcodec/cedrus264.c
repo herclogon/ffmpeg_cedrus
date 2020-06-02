@@ -333,7 +333,7 @@ static int cedrus264_encode(AVCodecContext *avctx, AVPacket *pkt,
 
 	size = readl(c4->ve_regs + VE_AVC_VLE_LENGTH) / 8;
 	if(size > 0){
-		if ((result = ff_alloc_packet(pkt, size)) < 0){
+		if ((result = ff_alloc_packet2(avctx, pkt, size)) < 0){
 			av_log(avctx, AV_LOG_ERROR, "Packet allocation error.\n");
 			return result;
 		}
